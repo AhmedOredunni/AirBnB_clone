@@ -3,14 +3,16 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel():
     """ A class BaseModel which other classes will inherit from
-   
+
         Attributes:
             id: A unique id created whenever an instance is created
             created_at: A time_date that stores the time when an instance is created
             updated_at: A time_date that stores the time whenever an instance is updated
     """
+
     def __init__(self, *args, **kwargs):
         """
             Called whenever the class is called
@@ -36,10 +38,8 @@ class BaseModel():
         Update the public instance attribute updated_at with the current datetime
         """
         self.updated_at = datetime.now()
-        #call the save method on storage.
+        # call the save method on storage.
         models.storage.save()
-
-
 
     def to_dict(self):
         """
@@ -58,7 +58,8 @@ class BaseModel():
         return obj_dict
 
     def __str__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__, self.id, self.__dict__)
 
 
 if __name__ == "__main__":

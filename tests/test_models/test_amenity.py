@@ -11,8 +11,6 @@ from models.amenity import Amenity
 class TestAmenity_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Amenity class."""
 
-   
-
     def test_name_is_public_class_attribute(self):
         am = Amenity()
         self.assertEqual(str, type(Amenity.name))
@@ -23,8 +21,6 @@ class TestAmenity_instantiation(unittest.TestCase):
         am1 = Amenity()
         am2 = Amenity()
         self.assertNotEqual(am1.id, am2.id)
-
-   
 
     def test_str_representation(self):
         dt = datetime.today()

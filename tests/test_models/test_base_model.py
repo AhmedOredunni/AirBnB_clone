@@ -4,6 +4,7 @@
 import unittest
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
 
     def test_attributes_creation(self):
@@ -26,7 +27,7 @@ class TestBaseModel(unittest.TestCase):
         """Test if the to_dict method returns a dictionary with the expected keys"""
         model = BaseModel()
         model_dict = model.to_dict()
-        self.assertIsInstance(model_dict,dict)
+        self.assertIsInstance(model_dict, dict)
 
         self.assertTrue('__class__' in model_dict)
         self.assertTrue('id' in model_dict)
@@ -53,7 +54,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(original_model.created_at, new_model.created_at)
         self.assertEqual(original_model.updated_at, new_model.updated_at)
 
+
 if __name__ == '__main__':
     unittest.main()
-
-

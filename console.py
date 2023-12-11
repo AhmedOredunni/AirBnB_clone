@@ -10,11 +10,12 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 
+
 class HBNBCommand(cmd.Cmd):
     """Handle the commandline integration of the website"""
     base_model = BaseModel()
     prompt = "(hbnb) "
-    
+
     def do_create(self, line):
         """Create and instance of the class Passed"""
         # if not line:
@@ -35,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
                 new_instance = globals()[class_name]()
                 new_instance.save()
                 print(new_instance.id)
-            
+
     def do_show(self, line):
         """Showed the String representation of the instance with a given id. """
         args = line.split()
@@ -85,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
         #         print("** no instance found **")
         #     else:
         #         print(obj)
-        
+
     def do_destroy(self, line):
         """Deletes an instance based on the class name and id."""
         args = line.split()
@@ -135,7 +136,8 @@ class HBNBCommand(cmd.Cmd):
             if class_name not in globals():
                 print("** class doesn't exist **")
             else:
-                print([str(obj) for key, obj in objects.items() if key.startswith(class_name)])
+                print([str(obj) for key, obj in objects.items()
+                      if key.startswith(class_name)])
 
     def do_update(self, line):
         """Updates an instance based on the class name and id."""
@@ -187,17 +189,15 @@ class HBNBCommand(cmd.Cmd):
         #         attr_value = args[3]
         #         setattr(obj, attr_name, eval(attr_value))
         #         self.model.storage.save()
-        
-    
+
     def do_EOF(self, line):
         """Use to exit the program"""
         return True
-    
+
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
 
 
 if __name__ == '__main__':
-   # HBNBCommand().cmdloop()
-   print(global())
+    HBNBCommand().cmdloop()
